@@ -4,9 +4,9 @@ from .models import Listing
 
 
 def home(request):
-	#listings = Listing.objects.all()
+	listings = Listing.objects.all()
 
-	#context = {
+	context = {
 		'listings': listings
 
 	}
