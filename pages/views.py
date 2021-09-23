@@ -3,12 +3,12 @@ from listings.models import Listing
 # Create your views here.
 
 def home(request):
-	listings = Listings.order_by('-list_date').filter(is_published=True)[:3]
+	listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
 
 	context = {
 		'listings': listings
 	}
-	return render(request, 'pages/home.html', contextt)
+	return render(request, 'pages/home.html', context)
 
 
 def about(request):
