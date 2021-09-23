@@ -13,6 +13,7 @@ def home(request):
 
 
 def about(request):
+
 	realtors = Realtor.objects.order_by('-hire_date')
 	#get MVP
 	mvp_realtors = Realtor.objects.all().filter(is_mvp=True)
