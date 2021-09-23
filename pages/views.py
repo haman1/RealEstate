@@ -1,9 +1,14 @@
 from django.shortcuts import render
-
+from listings.models import Listing
 # Create your views here.
 
 def home(request):
-	return render(request, 'pages/home.html')
+	listings = Listings.order_by('-list_date').filter(is_published=True)[:3]
+
+	context = {
+		'listings': listings
+	}
+	return render(request, 'pages/home.html', contextt)
 
 
 def about(request):
