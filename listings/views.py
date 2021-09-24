@@ -1,6 +1,6 @@
 from django.shortcuts import  get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from listings.choices import price_choices, bedroom_choices, state_choices
+from .choices import price_choices, bedroom_choices, state_choices
 
 
 from .models import Listing
@@ -32,11 +32,13 @@ def listing(request, listing_id):
 
 
 def search(request):
+	queryset_list = Listing.objects.order_by( '-list_date' )
 	context = {
-		'listings': listings,
+
 		'state_choices': state_choices,
 		'bedroom_choices': bedroom_choices,
-		'price_choices': price_choices
+		'price_choices': price_choices,
+		'listings': queryset_list,
 
 	}
 	return render(request, 'listings/search.html', context)
