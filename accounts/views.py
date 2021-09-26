@@ -3,14 +3,14 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def register(register):
+def register(request):
 	return render(request, 'accounts/register.html')
 
 
-def login(login):
+def login(request):
 	return render(request, 'accounts/login.html')
 
 
-def dashboard(dashboard):
+def dashboard(request):
 	return render(request, 'accounts/dashboard.html')
 
